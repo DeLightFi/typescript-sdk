@@ -1,29 +1,26 @@
-import { Protocol } from "../entities/Protocol"
-
+import { Protocol } from '../entities/Protocol';
 
 export class ProtocolProvider {
-	private readonly protocols: Protocol[] = [
-		// Add all ERC20 token details here
-		{ name: 'JediSwap', description: 'AMM Starknet ', logo: JEDISWAP_logo },
-		{ name: 'SithSwap', description: 'AMM Starknet', logo: SITHSWAP_logo },
-		{ name: '10KSwap', description: 'AMM Starknet', logo: KSWAP_logo },
-		{ name: 'NostraFi', description: 'AMM Lending/Borrow/Stablecoin', logo: NOSTRA_logo }
+  private readonly protocols: Protocol[] = [
+    // Add all ERC20 token details here
+    { name: 'JediSwap', description: 'AMM Starknet ', logo: JEDISWAP_logo },
+    { name: 'SithSwap', description: 'AMM Starknet', logo: SITHSWAP_logo },
+    { name: '10KSwap', description: 'AMM Starknet', logo: KSWAP_logo },
+    { name: 'NostraFi', description: 'AMM Lending/Borrow/Stablecoin', logo: NOSTRA_logo },
+  ];
 
-	];
+  getProtocolByName(name: string): Protocol | null {
+    return this.protocols.find((protocol) => protocol.name === name) || null;
+  }
 
-	getProtocolByName(name: string): Protocol | null {
-		return this.protocols.find((protocol) => protocol.name === name) || null;
-	}
+  getProtocols(): Protocol[] {
+    return this.protocols;
+  }
 
-	getProtocols(): Protocol[] {
-		return this.protocols;
-	}
-
-	getTypes(): string[] {
-		return ["Liquidity Pool", "Lending Pool"];
-	}
+  getTypes(): string[] {
+    return ['Liquidity Pool', 'Lending Pool'];
+  }
 }
-
 
 const JEDISWAP_logo: string = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" >
@@ -32,7 +29,7 @@ const JEDISWAP_logo: string = `
     <path d="M0 1600 l0 -1600 1600 0 1600 0 0 1600 0 1600 -1600 0 -1600 0 0 -1600z m2529 703 c-40 -76 -76 -144 -82 -150 -7 -10 -162 -13 -711 -13 l-701 0 -38 -70 c-21 -39 -40 -70 -42 -70 -4 0 -121 144 -278 343 l-77 97 1000 0 1001 0 -72 -137z m-586 -693 l-78 -150 -342 0 -342 0 72 150 72 149 348 1 348 0 -78 -150z m405 -512 c54 -68 133 -167 175 -220 l77 -98 -1000 0 -1000 0 71 143 70 142 711 5 712 5 39 73 c21 39 40 72 42 72 3 0 48 -55 103 -122z" />
   </g>
 </svg>
-`
+`;
 
 const SITHSWAP_logo: string = `
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +72,7 @@ l-93 -71 -1123 0 c-1120 0 -1123 0 -1152 21 -16 11 -59 45 -95 75 l-67 54
 -1 -48 -25z"/>
 </g>
 </svg>
-`
+`;
 
 const KSWAP_logo: string = `
 
@@ -124,7 +121,7 @@ l20 32 -126 0 -125 0 -54 -97 c-30 -54 -89 -163 -132 -243 -90 -169 -99 -180
 -70 -4z"/>
 </g>
 </svg>
-`
+`;
 
 const NOSTRA_logo: string = `
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -190,5 +187,4 @@ M45.622475,27.525383
 	C42.743927,29.523409 44.031425,28.616268 45.622475,27.525383 
 z"/>
 </svg>
-`
-
+`;
